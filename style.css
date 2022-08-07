@@ -1,0 +1,63 @@
+html{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  font-family: sans-serif;
+  height: auto;
+  width: auto;
+}
+
+/* Within body */
+header{
+  padding: 30px 0;
+  text-align: center;
+}
+
+main{
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  margin: 0;
+}
+
+footer{
+  text-align: center;
+  border
+}
+/* ------------------- */
+
+/* Within body-main */
+
+.setting{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  gap: 30px;
+  margin: 0 auto;
+}
+
+.grid{
+  /* background-color: black; */
+  display: grid;
+  width: 500px;
+  height: 500px;
+}
+
+/* ------------------- */
+
+button{
+  width: 100%;
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+button:hover{
+  transform: scale(1.05);
+}
+button.active{
+  /* transform: scale(2); */
+  background-color: #333;
+  color: #ededed;
+}
