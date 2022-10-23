@@ -3,12 +3,20 @@
 const colorBtn = document.getElementById('colorBtn');
 const rainbowBtn = document.getElementById('rainbowBtn');
 const eraserBtn = document.getElementById('eraserBtn');
+const clearBtn = document.getElementById('clearBtn');
 
 let currentMode = 'color' ;
+activateButton('color');
 
-colorBtn.onclick = () => setCurrentMode('color')
-rainbowBtn.onclick = () => setCurrentMode('rainbow')
-eraserBtn.onclick = () => setCurrentMode('eraser')
+colorBtn.addEventListener('click', () => setCurrentMode('color'));
+rainbowBtn.addEventListener('click', () => setCurrentMode('rainbow'));
+eraserBtn.addEventListener('click', () => setCurrentMode('eraser'));
+clearBtn.addEventListener('click', () => setCurrentMode('clear'));
+
+// colorBtn.onclick = () => setCurrentMode('color')
+// rainbowBtn.onclick = () => setCurrentMode('rainbow')
+// eraserBtn.onclick = () => setCurrentMode('eraser')
+// clearBtn.onclick = () => setCurrentMode('clear')
 
 function setCurrentMode(chosen){
   activateButton(chosen);
@@ -19,12 +27,18 @@ function activateButton(chosen){
   colorBtn.classList.remove('active');
   rainbowBtn.classList.remove('active');
   eraserBtn.classList.remove('active');
+  clearBtn.classList.remove('active');
   if(chosen === 'color')
     colorBtn.classList.add('active') ;
   else if(chosen === 'rainbow')
     rainbowBtn.classList.add('active');
   else if(chosen === 'eraser')
     eraserBtn.classList.add('active');
+  else if(chosen === 'clear'){
+    clearBtn.classList.add('active');
+    clearAll();
+  }
+    
 }
 //-----------------------
 
@@ -54,6 +68,21 @@ function painting(e){
   if(currentMode === 'color'){
     e.target.style.backgroundColor = '#333333' ;
   }
+  else if(currentMode === 'rainbow'){
+    const randomR = Math.floor(Math.random() * 256);
+    const randomG = Math.floor(Math.random() * 256);
+    const randomB = Math.floor(Math.random() * 256);
+    e.target.style.backgroundColor = `rgb(${randomR}, ${randomG}, ${randomB})`
+  }
+  else if(currentMode === 'eraser')
+    e.target.style.backgroundColor = 'white' ;
 }
 
+function clearAll(){
+  const gridElementAll = document.querySelectorAll('.grid-element');
+  gridElementAll.forEach( (element) => {
+    element.style.backgroundColor = 'white';
+  })
+  
+}
 //-----------------------

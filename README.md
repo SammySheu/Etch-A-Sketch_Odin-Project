@@ -1,7 +1,5 @@
 # Etch-A-Sketch_Odin-Project
 
-Add colorMode function and painting function on 220808
+This project uses Javascript to manipulate the DOM with a little skills of callback function and addEvenrtListener. 
+You could find a live demo on <https://sammysheu.github.io/Etch-A-Sketch_Odin-Project/>
 
-AddEventListner to button on 220807.
-
-Complete HTML frame on 220802.
